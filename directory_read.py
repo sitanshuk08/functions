@@ -42,11 +42,4 @@ df = pd.DataFrame()
 path_test = r'/home/sitanshu/Documents/Python/datasets/tempreture'
 directory_read(path_test, df)
 
-# path_test = r'/home/sitanshu/Documents/Python/datasets'
-
-
-
-directory_read(path_test)
-# df.info()
-
 
