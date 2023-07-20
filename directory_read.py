@@ -9,36 +9,30 @@ import pandas as pd
 
 # function takes in 2 values, path and dataframe
 def directory_read(pathName, df):
-    
+    # declare the variable global so they can be used outside function
     global df_1
-    # df = pd.DataFrame()
-    # ignore the commented out lines, inserted for testing purpose
-    # count_file = 0
-    # count_subdirectory = 0
     
     # for loop which scans all the directories
     for i in os.scandir(pathName):
-        
-        # print(i)
         # if the path ends in a file reads the csv or excel file else continue
         if os.path.isfile(i):
-            # count_file = count_file +1
-            # print(count_file)
+            
             if i.path.endswith('.csv'):
                 df1 = pd.read_csv(i,low_memory = False)
-                # df = pd.concat([df, df1], axis =1)
+                
             elif i.endswith('.xlsx'):
                 df1 = pd.read_excel(i)
-                # df=pd.concat([df, df1], axis = 1)
+                
             else: 
                 continue
             df=pd.concat([df, df1], axis = 0)
-            # print(len(df))
+            
         # if the director is subdirectory, calls the function to read the directory and appends to the existing dataframe
         elif os.path.isdir(i):
             # count_subdirectory = count_subdirectory+1
             # print(count_subdirectory)
             directory_read(i, df)
+        
     # print(count_file)
     df_1 = df.copy() 
     return df_1
