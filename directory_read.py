@@ -54,7 +54,7 @@ def directory_read_dask(pathName, df):
             if i.path.endswith('.csv'):
                 df1 = dd.read_csv(i,low_memory = False)
                 
-            elif i.endswith('.xlsx'):
+            elif i.path.endswith('.xlsx'):
                 df1 = dd.read_excel(i)
                 
             else: 
