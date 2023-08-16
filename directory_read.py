@@ -20,7 +20,7 @@ def directory_read(pathName, df):
             if i.path.endswith('.csv'):
                 df1 = pd.read_csv(i,low_memory = False)
                 
-            elif i.endswith('.xlsx'):
+            elif i.path.endswith('.xlsx'):
                 df1 = pd.read_excel(i)
                 
             else: 
