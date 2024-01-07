@@ -1,0 +1,8 @@
+// import the required libraries
+import os
+
+// reads the directory of the fodler, script is saved in
+script_directory = os.path.dirname(os.path.abspath(__file__))
+input = os.path.join(script_directory, "input")
+output = os.path.join(script_directory, "output")
+  
